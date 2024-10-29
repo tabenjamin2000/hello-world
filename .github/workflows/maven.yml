@@ -26,10 +26,13 @@ jobs:
       run: mvn test
 
 # Build and push to Dockerhub  
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
     - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push-push@v4
+      uses: docker/build-push-action@v3
       with:
-        image: tabenjamin2000/shop-app
-        registry: docker.io
-        DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
+        context: .
+        push: true
+        tags: |
+          tabenjamin2000/shop-app:latest  # Use your actual repo name here
