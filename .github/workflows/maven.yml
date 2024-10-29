@@ -9,11 +9,8 @@ on:
 jobs:
   build:
 
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-       os: [ubuntu-latest, windows-latest, macOS-latest]
-
+    runs-on: ubuntu-latest
+   
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -32,10 +29,10 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+        username: ${{secrets.DOCKER_HUB_USERNAME}}
+        password: ${{secrets.DOCKER_HUB_TOKEN}}
 
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-app:latest .
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-app:latest
+        docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/shop-app:latest .
+        docker push ${{secrets.DOCKER_HUB_USERNAME}}/shop-app:latest
