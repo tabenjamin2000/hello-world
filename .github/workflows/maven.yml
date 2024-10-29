@@ -29,6 +29,6 @@ jobs:
     - name: Build and push to Dockerhub
       uses: docker/build-push-action@v3
       with:
-        image: ${{secrets.DOCKER_HUB_USERNAME}}/shop-app:latest
+        image: ${{secrets.DOCKER_HUB_USERNAME}}/shop-app
         username: ${{secrets.DOCKER_HUB_USERNAME}}
         password: ${{secrets.DOCKER_HUB_TOKEN}}
