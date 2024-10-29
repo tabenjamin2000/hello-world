@@ -32,7 +32,7 @@ jobs:
         context: .
         push: true
         tags: |
-          latest
+          tabenjamin2000/shop-app:latest
       env:
         DOCKER_BUILDKIT: 1
         DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
