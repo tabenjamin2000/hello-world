@@ -26,9 +26,14 @@ jobs:
       run: mvn test
 
 # Build and push to Dockerhub
-    - name: Build and push to Dockerhub
+    - name: Build and Push Docker Image
       uses: docker/build-push-action@v3
       with:
-        image: ${{secrets.DOCKER_HUB_USERNAME}}/shop-app
-        username: ${{secrets.DOCKER_HUB_USERNAME}}
-        password: ${{secrets.DOCKER_HUB_TOKEN}}
+        context: .
+        push: true
+        tags: |
+          ${{ secrets.DOCKER_HUB_USERNAME }}/shop-app:latest
+      # env:
+      #   DOCKER_BUILDKIT: 1
+      #   DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      #   DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
