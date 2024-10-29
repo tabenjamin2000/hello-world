@@ -31,9 +31,8 @@ jobs:
       with:
         context: .
         push: true
-        tags: |
-          ${{ secrets.DOCKER_HUB_USERNAME }}/shop-app:latest
-      env:
-        DOCKER_BUILDKIT: 1
-        DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
+        
+      # env:
+      #   DOCKER_BUILDKIT: 1
+      #   DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      #   DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
