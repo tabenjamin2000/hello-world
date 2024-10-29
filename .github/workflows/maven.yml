@@ -25,15 +25,11 @@ jobs:
     - name: Run tests with Maven
       run: mvn test
 
-# Build and push to Dockerhub
+# Build and push to Dockerhub  
     - name: Build and Push Docker Image
-      uses: docker/build-push-action@v3
+      uses: mr-smithers-excellent/docker-build-push-push@v4
       with:
-        context: .
-        push: true
-        tags: |
-          tabenjamin2000/shop-app:latest
-      env:
-        DOCKER_BUILDKIT: 1
+        image: tabenjamin2000/shop-app
+        registry: docker.io
         DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
