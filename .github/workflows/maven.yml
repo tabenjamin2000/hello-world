@@ -25,6 +25,7 @@ jobs:
 
 # Build and push to Dockerhub  
   docker:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       # -
