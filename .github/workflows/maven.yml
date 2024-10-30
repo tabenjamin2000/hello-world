@@ -42,4 +42,4 @@ jobs:
       with:
         context: .  # Required to specify the current directory as the context
         push: true
-        tags: tabenjamin2000/shop-app:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/shop-app:1.0
