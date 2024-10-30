@@ -27,6 +27,7 @@ jobs:
   docker:
     needs: build
     runs-on: ubuntu-latest
+    environment: mavenci-env  # Specify the environment here
     steps:
       # -
       #   name: Set up QEMU
@@ -44,5 +45,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: .  # Required to specify the current directory as the context
           push: true
           tags: tabenjamin2000/shop-app:latest
